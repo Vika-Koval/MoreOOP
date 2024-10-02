@@ -5,12 +5,18 @@ import lombok.Getter;
 import lombok.Setter;
 import lotr.kickstrategy.KickStrategy;
 
-@Getter @Setter @AllArgsConstructor
+@Getter @AllArgsConstructor @Setter
 public abstract class Character {
     private int hp;
     private int power;
+    public void setHp(int hp) {
+        if (hp>=0){
+        this.hp = hp;}
+        else{
+            this.hp=0;
+        }
+    }
     private KickStrategy kickStrategy;
-
     public void kick(Character c){
         kickStrategy.kick(this,c);
     }
